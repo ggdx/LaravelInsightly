@@ -1,0 +1,22 @@
+{
+    "name": "dan/laravel-insightly",
+    "description": "Laravel 5 service provider for Insightly CRM",
+    "keywords": ["laravel", "insightly", "laravel 5", "laravel 5.2"],
+    "require": {
+        "php": ">=5.5.9",
+        "guzzlehttp/guzzle": "^6.2",
+        "symfony/psr-http-message-bridge": "0.2"
+    },
+    "license": "MIT Licence",
+    "authors": [
+        {
+            "name": "Daniel White",
+            "email": "hi@dwhite.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "DanW1\\LaravelInsightly\\": "src/DanW1/LaravelInsightly"
+        }
+    }
+}
