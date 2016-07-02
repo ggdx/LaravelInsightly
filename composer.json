@@ -2,6 +2,7 @@
     "name": "danw1/laravel-insightly",
     "description": "Laravel 5 service provider for Insightly CRM",
     "keywords": ["laravel", "insightly", "laravel 5", "laravel 5.2"],
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.5.9",
         "guzzlehttp/guzzle": "^6.2",
