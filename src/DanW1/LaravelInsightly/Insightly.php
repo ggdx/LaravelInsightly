@@ -77,11 +77,16 @@ class Insightly{
 
 
     /***********************        CONTACTS          *************************/
-    // Gets a list of Contacts
-    public function getContacts(array $filter = [])
+    // Gets a list of Contacts (filtered)
+    public function getFilteredContacts(array $filter = [])
     {
-        $str = $this->urlVars($filter);
-        return $this->request->get('v2.2/Contacts'.$str);
+        return $this->request->get('v2.2/Contacts/Search',$filter);
+    }
+
+    // Gets a basic list of Contacts
+    public function getContacts(array $args = [])
+    {
+        return $this->request->get('v2.2/Contacts',$args);
     }
 
 
