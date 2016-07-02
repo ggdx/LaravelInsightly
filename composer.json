@@ -7,7 +7,7 @@
         "guzzlehttp/guzzle": "^6.2",
         "symfony/psr-http-message-bridge": "0.2"
     },
-    "license": "MIT Licence",
+    "license": "MIT",
     "authors": [
         {
             "name": "Daniel White",
