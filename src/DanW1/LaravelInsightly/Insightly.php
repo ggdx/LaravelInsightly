@@ -84,9 +84,9 @@ class Insightly{
     }
 
     // Gets a basic list of Contacts
-    public function getContacts(array $args = [])
+    public function getContacts(array $data = [])
     {
-        return $this->request->get('v2.2/Contacts',$args);
+        return $this->request->get('v2.2/Contacts',$data);
     }
 
 
@@ -189,11 +189,16 @@ class Insightly{
 
 
     /***********************       EMAIL          *************************/
+    // Search
+    public function searchEmails(array $filter = [])
+    {
+        return $this->request->get('v2.2/Emails/Search',$filter);
+    }
+
     // Gets a list of Emails
     public function getEmails(array $filter = [])
     {
-        $str = $this->urlVars($filter);
-        return $this->request->get('v2.2/Emails'.$str);
+        return $this->request->get('v2.2/Emails',$filter);
     }
 
 
