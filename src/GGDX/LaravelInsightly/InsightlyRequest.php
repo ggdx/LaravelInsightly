@@ -140,9 +140,12 @@ class InsightlyRequest{
         //dd($client);
         switch ($method) {
             case 'GET':
-                $response = $client->request($method,$url.'?'.http_build_query($data));
+                if(count($data)){
+                    $response = $client->request($method,$url.'?'.http_build_query($data));
+                } else {
+                    $response = $client->request($method,$url);
+                }
                 break;
-
             default:
                 $request = new Request($method, $url);
                 break;
