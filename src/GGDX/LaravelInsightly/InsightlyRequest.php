@@ -1,4 +1,4 @@
-<?php namespace  DanW1\LaravelInsightly;
+<?php namespace  GGDX\LaravelInsightly;
 
 use Exception;
 use InvalidArgumentException;

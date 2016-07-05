@@ -1,4 +1,4 @@
-<?php namespace DanW1\LaravelInsightly;
+<?php namespace GGDX\LaravelInsightly;
 
 class InsightlyFacade extends \Illuminate\Support\Facades\Facade
 {
@@ -9,6 +9,6 @@ class InsightlyFacade extends \Illuminate\Support\Facades\Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'danw1.insightly';
+        return 'ggdx.insightly';
     }
 }
