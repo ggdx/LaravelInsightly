@@ -23,4 +23,4 @@ php artisan vendor:publish
 If using version control, add `INSIGHTLY_KEY=your_key` to the .env or add your key directly to config/insightly.php
 ***
 ## More info
-[https://github.com/ggdx/LaravelInsightly/wiki](Read the wiki)
+(https://github.com/ggdx/LaravelInsightly/wiki)[Read the wiki]
