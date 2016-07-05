@@ -64,6 +64,7 @@ class InsightlyRequest{
      */
     public function post($url, array $data = [])
     {
+        $data = $this->sanitizeBools($data);
         return $this->request(self::REQ_POST,$url, $data);
     }
 
@@ -79,6 +80,7 @@ class InsightlyRequest{
      */
     public function put($url, array $data = [])
     {
+        $data = $this->sanitizeBools($data);
         return $this->request(self::REQ_POST,$url, $data);
     }
 
@@ -91,10 +93,11 @@ class InsightlyRequest{
      * @param str url Endpoint
      * @return string|bool|null
      */
-     public function get($url, array $data = [])
-     {
-         return $this->request(self::REQ_GET, $url, $data);
-     }
+    public function get($url, $data)
+    {
+        $data = $this->sanitizeBools($data);
+        return $this->request(self::REQ_GET, $url, $data);
+    }
 
 
 
@@ -125,8 +128,11 @@ class InsightlyRequest{
      * @param array data
      * @return string|bool|null
      */
-    private function request($method, $url, $data = [])
+    private function request($method, $url, $data)
     {
+
+
+
         // Initialize client
         $client = new \GuzzleHttp\Client([
             'base_uri' => $this->base_url,
@@ -134,10 +140,10 @@ class InsightlyRequest{
                 'Authorization' => 'Basic '.base64_encode($this->key.':')
             ]
         ]);
-
         try {
             switch ($method) {
                 case 'GET':
+
                     if(count($data)){
                         $response = $client->request($method,$url.'?'.http_build_query($data));
                     } else {
@@ -156,6 +162,19 @@ class InsightlyRequest{
 
         return $response;
 
+    }
+
+
+    private function sanitizeBools(array $data = [])
+    {
+        foreach ($data as $key => $value) {
+            if($value === true){
+                $data[$key] = "true";
+            } elseif ($value === false){
+                $data[$key] = "false";
+            }
+        }
+        return $data;
     }
 
 }
