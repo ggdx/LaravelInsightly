@@ -91,10 +91,10 @@ class InsightlyRequest{
      * @param str url Endpoint
      * @return string|bool|null
      */
-    public function get($url)
-    {
-        return $this->request(self::REQ_GET,$url);
-    }
+     public function get($url, array $data = [])
+     {
+         return $this->request(self::REQ_GET, $url, $data);
+     }
 
 
 
@@ -127,9 +127,6 @@ class InsightlyRequest{
      */
     private function request($method, $url, $data = [])
     {
-
-
-
         // Initialize client
         $client = new \GuzzleHttp\Client([
             'base_uri' => $this->base_url,
@@ -137,24 +134,21 @@ class InsightlyRequest{
                 'Authorization' => 'Basic '.base64_encode($this->key.':')
             ]
         ]);
-        //dd($client);
-        switch ($method) {
-            case 'GET':
-                if(count($data)){
-                    $response = $client->request($method,$url.'?'.http_build_query($data));
-                } else {
-                    $response = $client->request($method,$url);
-                }
-                break;
-            default:
-                $request = new Request($method, $url);
-                break;
-        }
-        $response = $client->send($request);
-        //dd($response);
+
         try {
-            $response = $client->send($request);
-            //dd($response);
+            switch ($method) {
+                case 'GET':
+                    if(count($data)){
+                        $response = $client->request($method,$url.'?'.http_build_query($data));
+                    } else {
+                        $response = $client->request($method,$url);
+                    }
+                    break;
+                default:
+                    $request = new Request($method, $url);
+                    $response = $client->send($request);
+                    break;
+            }
         } catch (Exception $e) {
             $this->errors = [$e->getMessage()];
             $response = false;
