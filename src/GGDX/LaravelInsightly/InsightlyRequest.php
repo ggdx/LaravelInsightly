@@ -10,6 +10,7 @@ class InsightlyRequest{
     const REQ_PUT = 'PUT';
     const REQ_GET = 'GET';
     const REQ_DELETE = 'DELETE';
+    const REQ_CREATE = 'CREATE';
 
     // Endpoint starts here
     private $base_url = "https://api.insight.ly/";
@@ -68,6 +69,19 @@ class InsightlyRequest{
         return $this->request(self::REQ_POST,$url, $data);
     }
 
+
+    /**
+     * Create
+     *
+     *
+     * @param str url Endpoint
+     * @param string data - JSON
+     * @return string|bool|null
+     */
+    public function create($url, $data)
+    {
+        return $this->request(self::REQ_CREATE, $url, $data);
+    }
 
 
     /**
@@ -130,9 +144,7 @@ class InsightlyRequest{
      */
     private function request($method, $url, $data)
     {
-
-
-
+        //dd($data);
         // Initialize client
         $client = new \GuzzleHttp\Client([
             'base_uri' => $this->base_url,
@@ -142,13 +154,15 @@ class InsightlyRequest{
         ]);
         try {
             switch ($method) {
-                case 'GET':
-
+                case in_array($method, ['GET','POST']):
                     if(count($data)){
                         $response = $client->request($method,$url.'?'.http_build_query($data));
                     } else {
                         $response = $client->request($method,$url);
                     }
+                    break;
+                case 'CREATE':
+                    $response = $client->request('POST',$url, ['json' => $data]);
                     break;
                 default:
                     $request = new Request($method, $url);
