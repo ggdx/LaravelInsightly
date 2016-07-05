@@ -93,7 +93,7 @@ class InsightlyRequest{
      * @param str url Endpoint
      * @return string|bool|null
      */
-    public function get($url, $data)
+    public function get($url, array $data = [])
     {
         $data = $this->sanitizeBools($data);
         return $this->request(self::REQ_GET, $url, $data);
