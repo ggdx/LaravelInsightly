@@ -1,4 +1,4 @@
-<?php namespace DanW1\LaravelInsightly;
+<?php namespace GGDX\LaravelInsightly;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -25,21 +25,11 @@ class InsightlyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('danw1.insightly', function ($app) {
+        $this->app->bind('ggdx.insightly', function ($app) {
             $config = $app->config->get('insightly', []);
 
             return new Insightly($config);
         });
-    }
-
-    /**
-     * Check if package is running under Lumen app
-     *
-     * @return bool
-     */
-    protected function isLumen()
-    {
-        return str_contains($this->app->version(), 'Lumen') === true;
     }
 
     /**
