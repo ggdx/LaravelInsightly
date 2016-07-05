@@ -1,19 +1,19 @@
 # LaravelInsightly
 ## Getting started
 ### Composer
-`composer require danw1/laravel-insightly`
+`composer require ggdx/laravel-insightly`
 
 ### Laravel
 Add the provider:
 ```php
 'providers' => [
-    DanW1\LaravelInsightly\InsightlyServiceProvider::class,
+    GGDX\LaravelInsightly\InsightlyServiceProvider::class,
 ]
 ```
 Add the facade:
 ```php
 'aliases' => [
-    'Insightly' => DanW1\LaravelInsightly\InsightlyFacade::class,
+    'Insightly' => GGDX\LaravelInsightly\InsightlyFacade::class,
 ]
 ```
 Generate the config file:
