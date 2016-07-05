@@ -1,5 +1,5 @@
 {
-    "name": "danw1/laravel-insightly",
+    "name": "ggdx/laravel-insightly",
     "description": "Laravel 5 service provider for Insightly CRM",
     "keywords": ["laravel", "insightly", "laravel 5", "laravel 5.2"],
     "minimum-stability": "dev",
@@ -17,7 +17,7 @@
     ],
     "autoload": {
         "psr-4": {
-          "DanW1\\LaravelInsightly\\": "src/DanW1/LaravelInsightly"
+          "GGDX\\LaravelInsightly\\": "src/GGDX/LaravelInsightly"
         }
     }
 }
