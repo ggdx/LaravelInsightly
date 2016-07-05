@@ -241,13 +241,14 @@ class Insightly{
     }
 
 
-    // (if !$id) Gets a list of Calendar Events
-    // (if $id) Gets a Calendar Event
-    public function getEvents($id = false)
+    // Gets a list of Calendar Events
+    public function getEvents(array $filter = [])
     {
-        if(!$id){
-            return $this->request->get('v2.2/Events');
-        }
+        return $this->request->get('v2.2/Events');
+    }
+
+    public function getEvent($id = false)
+    {
         return $this->request->get('v2.2/Events/'.$id);
     }
 
