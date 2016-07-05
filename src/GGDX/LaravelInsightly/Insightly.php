@@ -234,6 +234,13 @@ class Insightly{
 
 
     /***********************       CALENDAR EVENTS          *************************/
+    // Search events
+    public function searchEvents(array $filter = [])
+    {
+        return $this->request->get('v2.2/Events/Search',$filter);
+    }
+
+
     // (if !$id) Gets a list of Calendar Events
     // (if $id) Gets a Calendar Event
     public function getEvents($id = false)
