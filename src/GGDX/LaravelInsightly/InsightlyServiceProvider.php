@@ -11,11 +11,10 @@ class InsightlyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->isLumen() == false) {
-            $this->publishes([
-                __DIR__ . '/config/insightly.php' => config_path('insightly.php'),
-            ]);
-        }
+        $this->publishes([
+            __DIR__ . '/config/insightly.php' => config_path('insightly.php'),
+        ]);
+
     }
 
     /**
