@@ -247,6 +247,7 @@ class Insightly{
         return $this->request->get('v2.2/Events');
     }
 
+
     public function getEvent($id = false)
     {
         return $this->request->get('v2.2/Events/'.$id);
