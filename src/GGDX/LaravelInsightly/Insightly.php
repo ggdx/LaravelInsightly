@@ -101,9 +101,18 @@ class Insightly{
 
 
     // Adds a Contact
-    public function createContact(array $data = [])
+    public function createContact($data = false)
     {
-        return $this->request->post('v2.2/Contacts',$data);
+        if(!$data){
+            return false;
+        }
+        if(!is_array($data)){
+            $data = json_decode($data);
+            if(!is_array($data)){
+                return false;
+            }
+        }
+        return $this->request->create('v2.2/Contacts',$data);
     }
 
 
