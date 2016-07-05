@@ -212,16 +212,6 @@ class Insightly{
     }
 
 
-    // Deletes an Email
-    public function deleteEmail($id = false)
-    {
-        if(!$id){
-            return false;
-        }
-        return $this->request->delete('v2.2/Emails/'.$id);
-    }
-
-
     // Gets an Email's Comments
     public function getEmailComments($id = false)
     {
