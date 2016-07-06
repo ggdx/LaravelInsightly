@@ -1,3 +1,5 @@
+This service provider is not ready for use yet.
+
 # LaravelInsightly
 ## Getting started
 ### Composer
