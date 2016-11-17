@@ -378,4 +378,47 @@ trait Contacts{
 
         return $this->call('get','Contacts/'.$id.'/Events');
     }
+
+
+    /**
+     * Get contact notes
+     *
+     * @param int $id Contact ID
+     * @return object
+     */
+    public function getContactNotes($id = false)
+    {
+        if(!$id){
+            $this->set_error('getContactNotes() -> $id must be set.');
+        }
+
+        return $this->call('get','Contacts/'.$id.'/Notes');
+    }
+
+
+    /**
+     * Create contact note
+     *
+     * @param int $id Contact ID
+     * @param array $data
+     * @return object
+     */
+    public function createContactNote($id = false, array $data = [])
+    {
+        if(!$id){
+            $this->set_error('createContactNote() -> $id must be set.');
+        }
+
+        if(!count($data)){
+            $this->set_error('createContactNote() -> $data must be set.');
+        } else {
+            $data = $this->dataKeysToUpper($data);
+
+            if(empty($data['TITLE'])){
+                $this->set_error('createContactNote() -> $data[\'TITLE\'] must be set.');
+            }
+        }
+
+        return $this->call('post','Contacts/'.$id.'/Notes', $data);
+    }
 }
