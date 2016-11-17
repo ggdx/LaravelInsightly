@@ -4,12 +4,12 @@ use Exception;
 
 class Insightly{
 
-    use GGDX\LaravelInsightly\Traits\ActivitySets;
-    use GGDX\LaravelInsightly\Traits\Comments;
-    use GGDX\LaravelInsightly\Traits\Contacts;
-    use GGDX\LaravelInsightly\Traits\Countries;
-    use GGDX\LaravelInsightly\Traits\Currencies;
-    use GGDX\LaravelInsightly\Traits\Error;
+    use Traits\ActivitySets;
+    use Traits\Comments;
+    use Traits\Contacts;
+    use Traits\Countries;
+    use Traits\Currencies;
+    use Traits\Error;
 
 
     private $request, $api_version;
@@ -17,7 +17,7 @@ class Insightly{
     public $error = [];
 
 
-    public function __construct($config)
+    public function __construct()
     {
         $this->request = new InsightlyRequest(config('insightly.api_key'));
 
@@ -57,7 +57,7 @@ class Insightly{
     private function dataKeysToUpper($data)
     {
         foreach ($data as $key => $value) {
-            $data[strtoupper($key)] => $value;
+            $data[strtoupper($key)] = $value;
             unset($data[$key]);
         }
 
