@@ -165,6 +165,65 @@ trait Contacts{
             $this->set_error('deleteContactAddress() -> $address_id must be set.');
         }
 
-        return $this->call('put','v2.2/Contacts/'.$id.'/Addresses/'.$address_id);
+        return $this->call('delete','v2.2/Contacts/'.$id.'/Addresses/'.$address_id);
+    }
+
+
+    /**
+     * Add / update contact info
+     *
+     * If !$data['CONTACT_INFO_ID'], add new otherwise update.
+     *
+     * @param array $data. ['CONTACT_INFO_ID' => int, 'TYPE' => string REQUIRED, 'SUBTYPE' => string, 'LABEL' => string REQUIRED, 'DETAIL' => string REQUIRED]
+     * @param int $id Contact ID.
+     */
+    public function saveContactInfo(array $data = [], $id = false)
+    {
+        if(!$id){
+            $this->set_error('addContactInfo() -> $id must be set.');
+        }
+
+        if(!count($data)){
+            $this->set_error('addContactInfo() -> $data must be provided.');
+        } else {
+            $data = $this->dataKeysToUpper($data);
+
+            if(empty($data['TYPE'])){
+                $this->set_error('addContactInfo() -> $data[\'TYPE\'] must be provided.');
+            }
+
+            if(empty($data['LABEL'])){
+                $this->set_error('addContactInfo() -> $data[\'LABEL\'] must be provided.');
+            }
+
+            if(empty($data['DETAIL'])){
+                $this->set_error('addContactInfo() -> $data[\'DETAIL\'] must be provided.');
+            }
+        }
+
+        if(!empty($data['CONTACT_INFO_ID'])){
+            return $this->call('put','v2.2/Contacts/'.$id.'/ContactInfos', $data);
+        }
+
+        return $this->call('post','v2.2/Contacts/'.$id.'/ContactInfos', $data);
+    }
+
+
+    /**
+     * Delete contact info
+     *
+     * @param int $id User ID
+     * @param int $info_id Info ID.
+     */
+    public function deleteContactInfo($id = false, $info_id = false)
+    {
+        if(!$id){
+            $this->set_error('deleteContactInfo() -> $id must be set.');
+        }
+        if(!$info_id){
+            $this->set_error('deleteContactInfo() -> $info_id must be set.');
+        }
+
+        return $this->call('delete','v2.2/Contacts/'.$id.'/ContactInfos/'.$info_id);
     }
 }
