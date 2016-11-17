@@ -7,6 +7,7 @@ class Insightly{
     use GGDX\LaravelInsightly\Traits\ActivitySets;
     use GGDX\LaravelInsightly\Traits\Comments;
     use GGDX\LaravelInsightly\Traits\Contacts;
+    use GGDX\LaravelInsightly\Traits\Countries;
     use GGDX\LaravelInsightly\Traits\Error;
 
 
