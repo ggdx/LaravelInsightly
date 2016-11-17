@@ -16,6 +16,7 @@ class Insightly{
     use Traits\Events;
     use Traits\FileAttachments;
     use Traits\FileCategories;
+    use Traits\Follows;
 
 
     private $request, $api_version;
