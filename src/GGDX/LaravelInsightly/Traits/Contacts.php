@@ -226,4 +226,46 @@ trait Contacts{
 
         return $this->call('delete','v2.2/Contacts/'.$id.'/ContactInfos/'.$info_id);
     }
+
+
+    /**
+     * Save contact date entry
+     *
+     * !$data['DATE_ID'] = create, otherwise update
+     *
+     * @param int $id Contact ID
+     * @param int $data Date information - ['DATE_ID' => int, 'OCCASION_NAME' => string, 'OCCASION_DATE' => string (ISO 8601), 'REPEAT_YEARLY' => bool, 'CREATE_TASK_YEARLY' => bool ]
+     * @return object
+     */
+    public function saveContactDate($id = false, array $data = [])
+    {
+        if(!$id){
+            $this->set_error('saveContactDate() -> $id must be set.');
+        }
+
+        if(!empty($data['DATE_ID'])){
+            return $this->call('put','v2.2/Contacts/'.$id.'/Dates', $data);
+        }
+
+        return $this->call('post','v2.2/Contacts/'.$id.'/Dates', $data);
+    }
+
+
+    /**
+     * Delete contact date entry
+     *
+     * @param int $id User ID
+     * @param int $date_id Date ID.
+     */
+    public function deleteContactInfo($id = false, $date_id = false)
+    {
+        if(!$id){
+            $this->set_error('deleteContactInfo() -> $id must be set.');
+        }
+        if(!$date_id){
+            $this->set_error('deleteContactInfo() -> $date_id must be set.');
+        }
+
+        return $this->call('delete','v2.2/Contacts/'.$id.'/Date/'.$date_id);
+    }
 }
