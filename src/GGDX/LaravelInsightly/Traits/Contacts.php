@@ -243,6 +243,8 @@ trait Contacts{
             $this->set_error('saveContactDate() -> $id must be set.');
         }
 
+        $data = $this->dataKeysToUpper($data);
+
         if(!empty($data['DATE_ID'])){
             return $this->call('put','v2.2/Contacts/'.$id.'/Dates', $data);
         }
@@ -257,15 +259,67 @@ trait Contacts{
      * @param int $id User ID
      * @param int $date_id Date ID.
      */
-    public function deleteContactInfo($id = false, $date_id = false)
+    public function deleteContactDate($id = false, $date_id = false)
     {
         if(!$id){
-            $this->set_error('deleteContactInfo() -> $id must be set.');
+            $this->set_error('deleteContactDate() -> $id must be set.');
         }
         if(!$date_id){
-            $this->set_error('deleteContactInfo() -> $date_id must be set.');
+            $this->set_error('deleteContactDate() -> $date_id must be set.');
         }
 
-        return $this->call('delete','v2.2/Contacts/'.$id.'/Date/'.$date_id);
+        return $this->call('delete','v2.2/Contacts/'.$id.'/Dates/'.$date_id);
+    }
+
+
+
+    /**
+     * Update contact custom field
+     *
+     * @param int $id Contact ID
+     * @param array $data ['CUSTOM_FIELD_ID' => int, 'FIELD_VALUE' => mixed]
+     * @return return type
+     */
+    public function updateContactCustomField($id = false, array $data = [])
+    {
+        if(!$id){
+            $this->set_error('updateContactCustomField() -> $id must be set.');
+        }
+
+        if(!count($data)){
+            $this->set_error('updateContactCustomField() -> $data must be set.');
+        } else {
+            $data = $this->dataKeysToUpper($data);
+
+            if(empty($data['CUSTOM_FIELD_ID'])){
+                $this->set_error('updateContactCustomField() -> $data[\'CUSTOM_FIELD_ID\'] must be set.');
+            }
+
+            if(empty($data['FIELD_VALUE'])){
+                $this->set_error('updateContactCustomField() -> $data[\'FIELD_VALUE\'] must be set.');
+            }
+        }
+
+        return $this->call('put','v2.2/Contacts/'.$id.'/CustomFields',$data);
+    }
+
+
+    /**
+     * Delete contact custom field
+     *
+     * @param int $id User ID
+     * @param int $cf_id Date ID.
+     */
+    public function deleteContactCustomField($id = false, $cf_id = false)
+    {
+        if(!$id){
+            $this->set_error('deleteContactCustomField() -> $id must be set.');
+        }
+        
+        if(!$cf_id){
+            $this->set_error('deleteContactCustomField() -> $cf_id must be set.');
+        }
+
+        return $this->call('delete','v2.2/Contacts/'.$id.'/CustomFields/'.$cf_id);
     }
 }
