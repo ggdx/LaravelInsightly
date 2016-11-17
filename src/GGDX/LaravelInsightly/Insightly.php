@@ -14,6 +14,7 @@ class Insightly{
     use Traits\Emails;
     use Traits\Error;
     use Traits\Events;
+    use Traits\FileAttachments;
 
 
     private $request, $api_version;
