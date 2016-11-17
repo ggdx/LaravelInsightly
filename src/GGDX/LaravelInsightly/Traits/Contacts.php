@@ -16,10 +16,10 @@ trait Contacts{
     public function getContacts($filter = false)
     {
         if($filter != false && count($filter) > 0){
-            return $this->call('get','v2.2/Contacts/Search');
+            return $this->call('get','Contacts/Search');
         }
 
-        return $this->call('get','v2.2/Contacts');
+        return $this->call('get','Contacts');
     }
 
 
@@ -35,7 +35,7 @@ trait Contacts{
            $this->set_error('getContact() -> $id must be provided.');
        }
 
-       return $this->call('get','v2.2/Contacts/'.$id);
+       return $this->call('get','Contacts/'.$id);
     }
 
 
@@ -59,12 +59,12 @@ trait Contacts{
         }
 
         if(!$id){
-            return $this->call('post','v2.2/Contacts', $data)
+            return $this->call('post','Contacts', $data)
         }
 
         $data['CONTACT_ID'] = $id;
 
-        return $this->call('put','v2.2/Contacts', $data);
+        return $this->call('put','Contacts', $data);
     }
 
 
@@ -80,7 +80,7 @@ trait Contacts{
             $this->set_error('deleteContact() -> $id must be set.');
         }
 
-        return $this->call('delete','v2.2/Contacts/'.$id);
+        return $this->call('delete','Contacts/'.$id);
     }
 
 
@@ -96,7 +96,7 @@ trait Contacts{
             $this->set_error('getContactImage() -> $id must be set.');
         }
 
-        return $this->call('get','v2.2/Contacts/'.$id.'/Image');
+        return $this->call('get','Contacts/'.$id.'/Image');
     }
 
 
@@ -112,7 +112,7 @@ trait Contacts{
             $this->set_error('deleteContactImage() -> $id must be set.');
         }
 
-        return $this->call('delete','v2.2/Contacts/'.$id.'/Image');
+        return $this->call('delete','Contacts/'.$id.'/Image');
     }
 
 
@@ -128,7 +128,7 @@ trait Contacts{
             $this->set_error('addContactAddress() -> $id must be set.');
         }
 
-        return $this->call('post','v2.2/Contacts/'.$id.'/Addresses', $data);
+        return $this->call('post','Contacts/'.$id.'/Addresses', $data);
     }
 
 
@@ -146,7 +146,7 @@ trait Contacts{
             $this->set_error('updateContactAddress() -> $id must be set.');
         }
 
-        return $this->call('put','v2.2/Contacts/'.$id.'/Addresses', $data);
+        return $this->call('put','Contacts/'.$id.'/Addresses', $data);
     }
 
 
@@ -165,7 +165,7 @@ trait Contacts{
             $this->set_error('deleteContactAddress() -> $address_id must be set.');
         }
 
-        return $this->call('delete','v2.2/Contacts/'.$id.'/Addresses/'.$address_id);
+        return $this->call('delete','Contacts/'.$id.'/Addresses/'.$address_id);
     }
 
 
@@ -202,10 +202,10 @@ trait Contacts{
         }
 
         if(!empty($data['CONTACT_INFO_ID'])){
-            return $this->call('put','v2.2/Contacts/'.$id.'/ContactInfos', $data);
+            return $this->call('put','Contacts/'.$id.'/ContactInfos', $data);
         }
 
-        return $this->call('post','v2.2/Contacts/'.$id.'/ContactInfos', $data);
+        return $this->call('post','Contacts/'.$id.'/ContactInfos', $data);
     }
 
 
@@ -224,7 +224,7 @@ trait Contacts{
             $this->set_error('deleteContactInfo() -> $info_id must be set.');
         }
 
-        return $this->call('delete','v2.2/Contacts/'.$id.'/ContactInfos/'.$info_id);
+        return $this->call('delete','Contacts/'.$id.'/ContactInfos/'.$info_id);
     }
 
 
@@ -246,10 +246,10 @@ trait Contacts{
         $data = $this->dataKeysToUpper($data);
 
         if(!empty($data['DATE_ID'])){
-            return $this->call('put','v2.2/Contacts/'.$id.'/Dates', $data);
+            return $this->call('put','Contacts/'.$id.'/Dates', $data);
         }
 
-        return $this->call('post','v2.2/Contacts/'.$id.'/Dates', $data);
+        return $this->call('post','Contacts/'.$id.'/Dates', $data);
     }
 
 
@@ -268,7 +268,7 @@ trait Contacts{
             $this->set_error('deleteContactDate() -> $date_id must be set.');
         }
 
-        return $this->call('delete','v2.2/Contacts/'.$id.'/Dates/'.$date_id);
+        return $this->call('delete','Contacts/'.$id.'/Dates/'.$date_id);
     }
 
 
@@ -300,7 +300,7 @@ trait Contacts{
             }
         }
 
-        return $this->call('put','v2.2/Contacts/'.$id.'/CustomFields',$data);
+        return $this->call('put','Contacts/'.$id.'/CustomFields',$data);
     }
 
 
@@ -320,7 +320,7 @@ trait Contacts{
             $this->set_error('deleteContactCustomField() -> $cf_id must be set.');
         }
 
-        return $this->call('delete','v2.2/Contacts/'.$id.'/CustomFields/'.$cf_id);
+        return $this->call('delete','Contacts/'.$id.'/CustomFields/'.$cf_id);
     }
 
 
@@ -340,7 +340,7 @@ trait Contacts{
             $this->set_error('addContactTag() -> $tag must be set.');
         }
 
-        return $this->call('post','v2.2/Contacts/'.$id.'/Tags', ['TAG_NAME' => $tag]);
+        return $this->call('post','Contacts/'.$id.'/Tags', ['TAG_NAME' => $tag]);
     }
 
 
@@ -360,6 +360,6 @@ trait Contacts{
             $this->set_error('deleteContactTag() -> $tag must be set.');
         }
 
-        return $this->call('delete','v2.2/Contacts/'.$id.'/Tags/'.$tag);
+        return $this->call('delete','Contacts/'.$id.'/Tags/'.$tag);
     }
 }

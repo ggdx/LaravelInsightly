@@ -19,7 +19,7 @@ trait Comments{
             $this->set_error('getComment() -> $id must be provided.');
         }
 
-        return $this->call('get','v2.2/Comments/'.$id);
+        return $this->call('get','Comments/'.$id);
     }
 
     /**
@@ -34,7 +34,7 @@ trait Comments{
             $this->set_error('getCommentAttachment() -> $id must be provided.');
         }
 
-        return $this->call('get','v2.2/Comments/'.$id.'/FileAttachments');
+        return $this->call('get','Comments/'.$id.'/FileAttachments');
     }
 
 
@@ -55,7 +55,7 @@ trait Comments{
             $this->set_error('updateComment() -> $body must be set.');
         }
 
-        return $this->call('put','v2.2/Comments/'.$id, ['BODY' => $body]);
+        return $this->call('put','Comments/'.$id, ['BODY' => $body]);
     }
 
 
@@ -70,6 +70,6 @@ trait Comments{
         if(!$id){
             $this->set_error('deleteComment() -> $id must be provided.');
         }
-        return $this->call('delete','v2.2/Comments/'.$id);
+        return $this->call('delete','Comments/'.$id);
     }
 }

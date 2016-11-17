@@ -10,7 +10,7 @@ class Insightly{
     use GGDX\LaravelInsightly\Traits\Error;
 
 
-    private $request;
+    private $request, $api_version;
 
     public $error = [];
 
@@ -18,6 +18,8 @@ class Insightly{
     public function __construct($config)
     {
         $this->request = new InsightlyRequest(config('insightly.api_key'));
+
+        $this->api_version = config('insightly.api_version');
     }
 
 
@@ -26,14 +28,16 @@ class Insightly{
         if(!$http_method){
             $this->set_error('call() - $http_method is required');
         }
-        
+
         if(!$endpoint){
             $this->set_error('call() - $endpoint is required');
         }
-        
+
         if(count($this->error)){
             return $this->error;
         }
+
+        $endpoint = $this->api_version.'/'.$endpoint;
 
         return !count($data) ? $this->request->$http_method($endpoint) : $this->request->$http_method($endpoint, $data);
     }

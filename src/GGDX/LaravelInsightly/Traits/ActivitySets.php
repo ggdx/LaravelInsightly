@@ -10,6 +10,6 @@ trait ActivitySets{
      */
     public function GetActivitySets($id = false)
     {
-        return !$id ? $this->call('get','v2.2/ActivitySets') : $this->call('get','v2.2/ActivitySets/'.$id);
+        return !$id ? $this->call('get','ActivitySets') : $this->call('get','ActivitySets/'.$id);
     }
 }
