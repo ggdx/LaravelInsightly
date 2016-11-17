@@ -4,6 +4,6 @@ trait Error{
 
     protected function set_error($data)
     {
-        $this->error[] = $data;
+        $this->error['errors'][] = $data;
     }
 }
