@@ -362,4 +362,20 @@ trait Contacts{
 
         return $this->call('delete','Contacts/'.$id.'/Tags/'.$tag);
     }
+
+
+    /**
+     * Get contact events
+     *
+     * @param int $id Contact ID
+     * @return object
+     */
+    public function getContactEvents($id = false)
+    {
+        if(!$id){
+            $this->set_error('getContactEvents() -> $id must be set.');
+        }
+
+        return $this->call('get','Contacts/'.$id.'/Events');
+    }
 }
