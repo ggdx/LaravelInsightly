@@ -7,7 +7,7 @@ trait Countries{
      *
      * @return object
      */
-    public function GetCountries()
+    public function getCountries()
     {
         return $this->call('get','Countries');
     }

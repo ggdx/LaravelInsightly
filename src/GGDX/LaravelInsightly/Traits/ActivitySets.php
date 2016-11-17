@@ -8,7 +8,7 @@ trait ActivitySets{
      * @param int $id Activity set ID
      * @return object
      */
-    public function GetActivitySets($id = false)
+    public function getActivitySets($id = false)
     {
         return !$id ? $this->call('get','ActivitySets') : $this->call('get','ActivitySets/'.$id);
     }
