@@ -19,6 +19,7 @@ class Insightly{
     use Traits\Follows;
     use Traits\Instance;
     use Traits\Leads;
+    use Traits\LeadSources;
 
 
     private $request, $api_version;
