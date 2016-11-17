@@ -59,7 +59,7 @@ trait Contacts{
         }
 
         if(!$id){
-            return $this->call('post','Contacts', $data)
+            return $this->call('post','Contacts', $data);
         }
 
         $data['CONTACT_ID'] = $id;
