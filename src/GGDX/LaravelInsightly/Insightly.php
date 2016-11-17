@@ -13,6 +13,7 @@ class Insightly{
     use Traits\CustomFields;
     use Traits\Emails;
     use Traits\Error;
+    use Traits\Events;
 
 
     private $request, $api_version;
