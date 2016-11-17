@@ -421,4 +421,36 @@ trait Contacts{
 
         return $this->call('post','Contacts/'.$id.'/Notes', $data);
     }
+
+
+    /**
+     * Get contact emails
+     *
+     * @param int $id Contact ID
+     * @return object
+     */
+    public function getContactEmails($id = false)
+    {
+        if(!$id){
+            $this->set_error('getContactEmails() -> $id must be set.');
+        }
+
+        return $this->call('get','Contacts/'.$id.'/Emails');
+    }
+
+
+    /**
+     * Get contact Tasks
+     *
+     * @param int $id Contact ID
+     * @return object
+     */
+    public function getContactTasks($id = false)
+    {
+        if(!$id){
+            $this->set_error('getContactTasks() -> $id must be set.');
+        }
+
+        return $this->call('get','Contacts/'.$id.'/Tasks');
+    }
 }
