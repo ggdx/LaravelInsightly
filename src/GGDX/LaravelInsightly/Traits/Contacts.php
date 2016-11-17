@@ -315,11 +315,51 @@ trait Contacts{
         if(!$id){
             $this->set_error('deleteContactCustomField() -> $id must be set.');
         }
-        
+
         if(!$cf_id){
             $this->set_error('deleteContactCustomField() -> $cf_id must be set.');
         }
 
         return $this->call('delete','v2.2/Contacts/'.$id.'/CustomFields/'.$cf_id);
+    }
+
+
+    /**
+     * Add tag to contact
+     *
+     * @param int $id User ID
+     * @param string $tag Tag name
+     */
+    public function addContactTag($id = false, $tag = false)
+    {
+        if(!$id){
+            $this->set_error('addContactTag() -> $id must be set.');
+        }
+
+        if(!$tag){
+            $this->set_error('addContactTag() -> $tag must be set.');
+        }
+
+        return $this->call('post','v2.2/Contacts/'.$id.'/Tags', ['TAG_NAME' => $tag]);
+    }
+
+
+    /**
+     * Delete contact tag
+     *
+     * @param int $id User ID
+     * @param string $tag Tag name
+     */
+    public function deleteContactTag($id = false, $tag = false)
+    {
+        if(!$id){
+            $this->set_error('deleteContactTag() -> $id must be set.');
+        }
+
+        if(!$tag){
+            $this->set_error('deleteContactTag() -> $tag must be set.');
+        }
+
+        return $this->call('delete','v2.2/Contacts/'.$id.'/Tags/'.$tag);
     }
 }
