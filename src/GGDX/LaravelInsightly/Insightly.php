@@ -11,6 +11,7 @@ class Insightly{
     use Traits\Currencies;
     use Traits\CustomFieldGroups;
     use Traits\CustomFields;
+    use Traits\Emails;
     use Traits\Error;
 
 
