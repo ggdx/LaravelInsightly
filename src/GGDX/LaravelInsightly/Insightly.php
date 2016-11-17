@@ -18,6 +18,7 @@ class Insightly{
     use Traits\FileCategories;
     use Traits\Follows;
     use Traits\Instance;
+    use Traits\Leads;
 
 
     private $request, $api_version;
