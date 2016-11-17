@@ -9,6 +9,8 @@ class Insightly{
     use Traits\Contacts;
     use Traits\Countries;
     use Traits\Currencies;
+    use Traits\CustomFieldGroups;
+    use Traits\CustomFields;
     use Traits\Error;
 
 
