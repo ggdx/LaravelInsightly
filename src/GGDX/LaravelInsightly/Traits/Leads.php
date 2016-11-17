@@ -22,6 +22,8 @@ trait Leads{
      */
     public function saveLead(array $data = [])
     {
+        $data = $this->dataKeysToUpper($data);
+
         if(!empty($data['LEAD_ID'])){
             return $this->call('put','Leads', $data);
         }
@@ -92,6 +94,8 @@ trait Leads{
         if(!count($data)){
             $this->set_error('updateLeadCustomField() -> $data must be provided.');
         }
+
+        $data = $this->dataKeysToUpper($data);
 
         return $this->call('put','Leads/'.$id.'/CustomFields');
     }
