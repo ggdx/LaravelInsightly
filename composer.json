@@ -6,7 +6,7 @@
     "require": {
         "php": ">=5.5.9",
         "ggdx/php-insightly": "dev-master",
-        "laravel/laravel": ">=5.2.0"
+        "laravel/laravel": ">=v5.2.0"
     },
     "license": "MIT",
     "authors": [
