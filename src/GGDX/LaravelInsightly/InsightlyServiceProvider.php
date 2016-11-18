@@ -26,14 +26,14 @@ class InsightlyServiceProvider extends ServiceProvider
     public function register()
     {
 
-        $this->app['ggdx.php-insightly'] = $this->app->share(function($app){
+        $this->app['ggdx.insightly'] = $this->app->share(function($app){
             $config = $app->config->get('insightly', []);
 
             return new Insightly($config['api_key'], $config['api_version']);
         });
 
 
-        $this->app->bind('GGDX\LaravelInsightly\Insightly', 'ggdx.php-insightly');
+        $this->app->bind('GGDX\LaravelInsightly\Insightly', 'ggdx.insightly');
     }
 
     /**
