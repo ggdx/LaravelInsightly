@@ -5,8 +5,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.5.9",
-        "ggdx/php-insightly": "dev-master",
-        "laravel/laravel": ">=v5.2.0 <6.0"
+        "ggdx/php-insightly": "dev-master"
     },
     "license": "MIT",
     "authors": [
