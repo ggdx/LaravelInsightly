@@ -1,6 +1,7 @@
 <?php namespace GGDX\LaravelInsightly;
 
 use Illuminate\Support\ServiceProvider;
+use GGDX\PhpInsightly\Insightly as Insightly;
 
 class InsightlyServiceProvider extends ServiceProvider
 {
@@ -24,11 +25,15 @@ class InsightlyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('ggdx.insightly', function ($app) {
+
+        $this->app['ggdx.php-insightly'] = $this->app->share(function($app){
             $config = $app->config->get('insightly', []);
 
-            return new Insightly($config);
+            return new Insightly($config['api_key'], $config['api_version']);
         });
+
+
+        $this->app->bind('GGDX\LaravelInsightly\Insightly', 'ggdx.php-insightly');
     }
 
     /**

@@ -4,21 +4,65 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "14103fa31d6062d20ff1ce7fcd7a1e20",
-    "content-hash": "8e6d1ff5c5e9af3605da04bb2a2aad9d",
+    "hash": "cdc7c1f6416aaf02ad2b25539dd7e98e",
+    "content-hash": "8f960cda51fea4e46ad9acb3a7a46323",
     "packages": [
+        {
+            "name": "ggdx/php-insightly",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ggdx/php-insightly.git",
+                "reference": "a96ff3d43d08f2a52c793d83af3ffacd0ff732ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ggdx/php-insightly/zipball/a96ff3d43d08f2a52c793d83af3ffacd0ff732ae",
+                "reference": "a96ff3d43d08f2a52c793d83af3ffacd0ff732ae",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2",
+                "php": ">=5.5.9",
+                "symfony/psr-http-message-bridge": "0.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GGDX\\PhpInsightly\\": "src/GGDX/PhpInsightly",
+                    "GGDX\\PhpInsightly\\Traits\\": "src/GGDX/PhpInsightly/Traits"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel White",
+                    "email": "hi@dwhite.me"
+                }
+            ],
+            "description": "PHP SDK for Insightly CRM API",
+            "keywords": [
+                "crm",
+                "insightly",
+                "php"
+            ],
+            "time": "2016-11-17 23:51:30"
+        },
         {
             "name": "guzzlehttp/guzzle",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "4d22214bbee8b40e3847c5fb65271925211e44b6"
+                "reference": "471026d23a14f6eadd0147eb5697f48ebe6adec8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4d22214bbee8b40e3847c5fb65271925211e44b6",
-                "reference": "4d22214bbee8b40e3847c5fb65271925211e44b6",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/471026d23a14f6eadd0147eb5697f48ebe6adec8",
+                "reference": "471026d23a14f6eadd0147eb5697f48ebe6adec8",
                 "shasum": ""
             },
             "require": {
@@ -67,7 +111,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-11-07 08:22:43"
+            "time": "2016-11-15 18:22:40"
         },
         {
             "name": "guzzlehttp/promises",
@@ -241,12 +285,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "31e25ce5e9734356f86aa2d761363fab6f2481ef"
+                "reference": "fcc5d1627e133915503a76dbe82a98723048ca76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/31e25ce5e9734356f86aa2d761363fab6f2481ef",
-                "reference": "31e25ce5e9734356f86aa2d761363fab6f2481ef",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/fcc5d1627e133915503a76dbe82a98723048ca76",
+                "reference": "fcc5d1627e133915503a76dbe82a98723048ca76",
                 "shasum": ""
             },
             "require": {
@@ -286,7 +330,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-11-07 19:34:59"
+            "time": "2016-11-16 22:18:16"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -405,7 +449,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "ggdx/php-insightly": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
