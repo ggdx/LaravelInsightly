@@ -51,4 +51,4 @@ $this->insightly->getContacts();
 
 
 ## More info
-[Read the SDK repository](https://github.com/ggdx/php-insightly)
+[See the SDK repository](https://github.com/ggdx/php-insightly)
