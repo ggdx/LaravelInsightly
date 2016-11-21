@@ -4,27 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cdc7c1f6416aaf02ad2b25539dd7e98e",
-    "content-hash": "8f960cda51fea4e46ad9acb3a7a46323",
+    "hash": "d941e21185e1139dcdf7bed6aa8475e9",
+    "content-hash": "d220a009d3607ef46e6251580e562a1f",
     "packages": [
         {
             "name": "ggdx/php-insightly",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ggdx/php-insightly.git",
-                "reference": "a96ff3d43d08f2a52c793d83af3ffacd0ff732ae"
+                "url": "https://github.com/ggdx/insightly-php.git",
+                "reference": "6a3aa07bccdd64e3e36180ac785ef2eaad9458a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ggdx/php-insightly/zipball/a96ff3d43d08f2a52c793d83af3ffacd0ff732ae",
-                "reference": "a96ff3d43d08f2a52c793d83af3ffacd0ff732ae",
+                "url": "https://api.github.com/repos/ggdx/insightly-php/zipball/6a3aa07bccdd64e3e36180ac785ef2eaad9458a3",
+                "reference": "6a3aa07bccdd64e3e36180ac785ef2eaad9458a3",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.2",
-                "php": ">=5.5.9",
-                "symfony/psr-http-message-bridge": "0.2"
+                "php": ">=5.5.9"
             },
             "type": "library",
             "autoload": {
@@ -49,7 +48,7 @@
                 "insightly",
                 "php"
             ],
-            "time": "2016-11-17 23:51:30"
+            "time": "2016-11-21 09:39:12"
         },
         {
             "name": "guzzlehttp/guzzle",
